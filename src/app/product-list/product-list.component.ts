@@ -12,5 +12,8 @@ export class ProductListComponent implements OnInit {
   ngOnInit() {
   }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3121a85fec57b5b7c596ca4c5cd8dc09541c33e2
 }

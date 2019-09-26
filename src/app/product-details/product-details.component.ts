@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { ActivatedRoute } from '@angular/router';
 import { GetDataService } from '../get-data.service';
+=======
+>>>>>>> 3121a85fec57b5b7c596ca4c5cd8dc09541c33e2
 
 @Component({
   selector: 'app-product-details',
@@ -8,6 +11,7 @@ import { GetDataService } from '../get-data.service';
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit {
+<<<<<<< HEAD
   ID;
   DATA : any;
   data2;
@@ -33,6 +37,12 @@ export class ProductDetailsComponent implements OnInit {
       if(rid == this.DATA[i].id)
         return this.DATA[i];
     }
+=======
+
+  constructor() { }
+
+  ngOnInit() {
+>>>>>>> 3121a85fec57b5b7c596ca4c5cd8dc09541c33e2
   }
 
 }
