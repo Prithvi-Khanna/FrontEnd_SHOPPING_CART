@@ -1,0 +1,30 @@
+import { Component, OnInit } from '@angular/core';
+import { GetDataService } from '../get-data.service';
+import { Router } from '@angular/router';
+
+console.log("homie");
+@Component({
+  selector: 'app-home-page',
+  templateUrl: './home-page.component.html',
+  styleUrls: ['./home-page.component.scss']
+})
+export class HomePageComponent implements OnInit {
+
+  Data;
+
+  constructor(private router : Router , private service : GetDataService) {
+    
+   }
+
+  ngOnInit() {
+  this.service.get1().subscribe( (data1 ) => {
+    this.Data=data1;
+  } )
+  }
+
+  goToDetails(id1)
+  {
+      this.router.navigate(['/product-details'] , { queryParams : {id : id1 }});
+  }
+
+}
