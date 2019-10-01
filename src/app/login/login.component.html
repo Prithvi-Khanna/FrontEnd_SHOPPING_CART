@@ -4,7 +4,7 @@
           <div class="text-center"><h2>LOGIN</h2></div>
           <div class="container">
             <div>
-            <form action="/home" #userForm="ngForm" (ngSubmit)="Onsubmit_login()" novalidate>
+            <form action="/home" #userForm="ngForm" (ngSubmit)="Onsubmit_login(name.value,pass.value)" novalidate>
               <div class="form-group">
                 <label  for="usr">Username:</label>
                 <input type="text" required #name="ngModel" [class.is-invalid]="name.invalid && name.touched" class="form-control" id="usr" name="username" placeholder="Enter Username" ngModel>

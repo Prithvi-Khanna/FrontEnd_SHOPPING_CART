@@ -9,8 +9,8 @@ export class GetUserService {
 
   constructor(private http : HttpClient) { }
 
-  get1_user(){
-    return this.http.get('assets/users.json');
+  get1_user(username){
+    return this.http.get('http://localhost:2019/users/get_user/'+username);
   }
 
   post1_user( posts : posts)

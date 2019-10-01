@@ -15,17 +15,12 @@ export class SignUpComponent implements OnInit {
   constructor( private service : GetUserService ) { }
 
   ngOnInit() {
-  this.service.get1_user().subscribe( (data1) => {
-       this.DATA=data1;
-  })
-
   }
 
   Onsubmit()
   {
 
     location.assign('/login');
-
     this.service.post1_user(this.post1).subscribe(
       data => console.log("SUCCESS" , data) ,
       error => console.log("ERROR" , error)
