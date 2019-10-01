@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GetUserService } from '../get-user.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor( private service : GetUserService ) { }
 
   ngOnInit() {
+  }
+
+  Onsubmit_login()
+  {
+    location.assign('/home');
+
+    
+  }
+
+  Sign()
+  {
+    location.assign('/sign-up');
   }
 
 }

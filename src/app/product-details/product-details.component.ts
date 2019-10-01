@@ -24,6 +24,8 @@ export class ProductDetailsComponent implements OnInit {
   
          this.data2 = this.getDetails(this.ID); 
     })
+  
+    
     
   }
 

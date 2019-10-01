@@ -1,9 +1,17 @@
 
-<nav class="navbar navbar-expan bg-light navbar-dark text-center ">
+<nav class="navbar navbar-expand bg-light navbar-dark text-center justify-content-between my-2">
+    <div class="mx-auto font-weight-bold"><a href="#" style="color: black ;text-decoration: none">ELECTRONCS </a></div>
+    <div class="mx-auto font-weight-bold"><a href="#" style="color: black ;text-decoration: none">BOOKS </a></div>
+     <div class="mx-auto font-weight-bold"><a href="#" style="color: black ;text-decoration: none">MEN </a></div>
+     <div class="mx-auto font-weight-bold"><a href="#" style="color: black ;text-decoration: none">WOMEN </a></div>
+     <div class="mx-auto font-weight-bold"><a href="#" style="color: black ;text-decoration: none">KIDS</a></div>
+
+   <div>
     <form class="form-inline mx-auto " action="/action_page.php">
       <input class="form-control mr-2 ml-auto" type="text" placeholder="Search for product" size="60">
       <button class="btn btn-warning" type="submit"><i class="fas fa-search"></i>  Search </button>
     </form>
+    </div>
   </nav>
 
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -16,10 +24,10 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100" src="/assets/shop3.png" alt="First slide" style="height: 400px">
+        <img class="d-block w-100" src="/assets/shop8.jpg" alt="First slide" style="height: 400px">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="/assets/shop4.jpg" alt="Second slide" style="height: 400px">
+        <img class="d-block w-100" src="/assets/shop9.jpg" alt="Second slide" style="height: 400px">
       </div>
       <div class="carousel-item">
         <img class="d-block w-100" src="/assets/shop6.jpg" alt="Third slide" style="height: 400px">
@@ -28,7 +36,7 @@
         <img class="d-block w-100" src="/assets/shop5.jpg" alt="Foruth slide" style="height: 400px">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="/assets/shop7.png" alt="Fivth slide" style="height: 400px">
+        <img class="d-block w-100" src="/assets/shop7.jpg" alt="Fivth slide" style="height: 400px">
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -44,37 +52,34 @@
   
 <div class="container-fluid row bg-light mx-0 p-2 d-flex " style=" justify-content: space-between">
     <div class="col-3 ">
-         <div class=" text-light" style="background: dimgray ;border: 1px solid black">
-             <div class="text-center  p-4 font-weight-bold" >
-                 <h4>Add Filters</h4>
-                 <br>
-                 <button class="btn btn-dark text-warning">Apply Filters</button>
+         <div class="container text-dark" style="background: white ;border: 1px solid dimgray">
+             <div class="text-center text-dark p-4 font-weight-bold" >
+                 <h4>Add Filters  <button class="btn btn-dark text-warning">Apply Filters</button></h4>
              </div>
-             <div class="container bg-warning text-dark p-4 mb-4" style="width:70% ; border: 1px solid black">
-              <div class="font-weight-lighter" >
+             <hr>
+              <div class="font-weight-lighter text-dark" >
                 <h5>Prices</h5>
               </div>
                 <ul class="font-weigiht-lighter  " style="list-style-type:none">
-                  <li><input type="radio" name="radio1">  0-499</li>
-                  <li><input type="radio" name="radio1">  500-999</li>
-                  <li><input type="radio" name="radio1">  1000-1499</li>
-                  <li><input type="radio" name="radio1">  1500-2499</li>
-                  <li><input type="radio" name="radio1">  2500-4999</li>
-                  <li><input type="radio" name="radio1">  5000+</li>
+                  <li><input type="radio" name="radio1">  0-999</li>
+                  <li><input type="radio" name="radio1">  1000-1999</li>
+                  <li><input type="radio" name="radio1">  2000-3999</li>
+                  <li><input type="radio" name="radio1">  4000-6499</li>
+                  <li><input type="radio" name="radio1">  6500-8999</li>
+                  <li><input type="radio" name="radio1">  9000+</li>
                 </ul>
-
+                <hr>
                 <div class="font-weight-lighter" >
                   <h5>Brands</h5>
                 </div>
                   <ul class="font-weigiht-lighter " style="list-style-type:none">
                     <li><input type="checkbox">  Adidas</li>
-                    <li><input type="checkbox">  Aldo</li>
+                    <li><input type="checkbox">  Arrow</li>
                     <li><input type="checkbox">  H&M</li>
                     <li><input type="checkbox">  Levi's</li>
                     <li><input type="checkbox">  Puma</li>
                     <li><input type="checkbox">  Zara</li>
-                  </ul>
-              </div>             
+                  </ul>          
          </div>
    </div>
   <div class="col-9"> 
@@ -82,7 +87,7 @@
    <div class="row ml-5" >
     <div *ngFor="let item of Data ">
        <div class="column" style="width: 15rem">
-        <div class="card m-3" style="border: 1px solid dimgray ;" >
+        <div class="card m-3 " style=" box-shadow:3px 3px 3px rgba(0, 0, 0, 0.3) ;" >
         <img class="card-img-top" src="{{item.img}}" alt="Card image" style="width:100%">
         <div class="card-body">
             <h4 class="card-title">{{item.brand}}</h4>

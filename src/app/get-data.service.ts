@@ -10,7 +10,7 @@ export class GetDataService {
 
   }
 
-  get1(  ){
+  get1(){
     return this.http.get('assets/prod-list.json');
   }
 }

@@ -11,6 +11,9 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductListComponent } from './product-list/product-list.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { GetDataService } from './get-data.service';
+import { GetUserService } from './get-user.service';
+import { FormsModule } from '@angular/forms'; 
 
 @NgModule({
   declarations: [
@@ -26,9 +29,10 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [GetDataService,GetUserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
