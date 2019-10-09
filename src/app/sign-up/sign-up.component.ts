@@ -19,12 +19,11 @@ export class SignUpComponent implements OnInit {
 
   Onsubmit()
   {
-
-    location.assign('/login');
     this.service.post1_user(this.post1).subscribe(
       data => console.log("SUCCESS" , data) ,
       error => console.log("ERROR" , error)
     )
+    location.assign('/login');
   }
 
 }

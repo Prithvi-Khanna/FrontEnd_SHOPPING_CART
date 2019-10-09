@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { GetDataService } from '../get-data.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class ProductDetailsComponent implements OnInit {
   ID;
   DATA : any;
   data2;
-  constructor(private route : ActivatedRoute , private service : GetDataService) { }
+  constructor(private route : ActivatedRoute , private service : GetDataService , private router : Router) { }
 
   ngOnInit() {
  
@@ -32,9 +33,14 @@ export class ProductDetailsComponent implements OnInit {
   getDetails(rid){
     for( let i=0 ;i<this.DATA.length;i++)
     {
-      if(rid == this.DATA[i].id)
+      if(rid == this.DATA[i].description)
         return this.DATA[i];
     }
+  }
+
+  goTo(cate)
+  {    
+      this.router.navigate(['/product-list'] , { queryParams : {cat : cate }});
   }
 
 }

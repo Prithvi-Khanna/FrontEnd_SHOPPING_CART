@@ -6,7 +6,11 @@
 <nav class="navbar navbar-expand-sm bg-dark">
     <a class="navbar-brand text-warning" href="#">THE SHOPPING CART</a>
     <div style="display: flex ; justify-content: space-between ; margin-left: auto">
-      <div><a class="nav-link text-warning" href="/user-cart">Cart  <i class="fas fa-shopping-cart"></i></a></div>
-      <div><a class="nav-link text-warning" href="/login">Logout  <i class="fa fa-user" aria-hidden="true"></i></a></div>
-   </div>
+      <div *ngIf="isUserLoggedIn1()" class="nav-link text-warning">Welcome {{user1}} </div>
+      <div *ngIf="isUserLoggedIn()"><a class="nav-link text-warning" href="/home">Home  <i class="fas fa-home"></i></a></div>
+      <div *ngIf="isUserLoggedIn()"><a class="nav-link text-warning" href="/user-cart">Cart  <i class="fas fa-shopping-cart"></i></a></div>
+      <div *ngIf="isUserLoggedIn()"><a class="nav-link text-warning" href="/login">LogOut  <i class="fa fa-arrow-right" ></i></a></div>
+      <div *ngIf="!isUserLoggedIn()"><a class="nav-link text-warning" href="/login">LogIn  <i class="fa fa-user" aria-hidden="true"></i></a></div>
+      <div *ngIf="!isUserLoggedIn()"><a class="nav-link text-warning" href="/sign-up">SignUp  <i class="fa fa-users" aria-hidden="true"></i></a></div>
+    </div>
   </nav>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GetUserService } from '../get-user.service';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,28 +10,32 @@ import { GetUserService } from '../get-user.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor( private service : GetUserService ) { }
+  invalidLogin = false;
+
+  constructor(private router : Router ,private service : GetUserService , private auth : AuthService) { }
 
   DATA : any;
 
   ngOnInit() {
+    sessionStorage.removeItem('username')
   }
 
-  Onsubmit_login(username1,password)
-  {
-   this.service.get1_user(username1).subscribe(
-    (data) => {
-      this.DATA = data;
-      if( this.DATA[0].username == username1 && this.DATA[0].password == password)
-      {
-        location.assign('/home');
+  check_login(username,password) {
+
+    (this.auth.authenticate(username,password).subscribe(
+      data => {
+        this.router.navigate(['/home'])
+        this.invalidLogin = false
+      },
+      error => {
+        this.invalidLogin = true
+
       }
-      else
-      alert("Wrong Credentials"); 
-    } ,
-    error => console.log("ERROR" , error)
-   )
+    )
+    );
+
   }
+
 
   Sign()
   {

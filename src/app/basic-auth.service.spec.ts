@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GetCategoryService } from './get-category.service';
+import { BasicAuthService } from './basic-auth.service';
 
-describe('GetCategoryService', () => {
+describe('BasicAuthService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: GetCategoryService = TestBed.get(GetCategoryService);
+    const service: BasicAuthService = TestBed.get(BasicAuthService);
     expect(service).toBeTruthy();
   });
 });

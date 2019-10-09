@@ -10,10 +10,12 @@ import { UserCartComponent } from './user-cart/user-cart.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule , HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GetDataService } from './get-data.service';
 import { GetUserService } from './get-user.service';
 import { FormsModule } from '@angular/forms'; 
+import { BasicAuthService } from './basic-auth.service';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule
   ],
-  providers: [GetDataService,GetUserService],
+  providers: [GetDataService,GetUserService, AuthService,{  
+    provide:HTTP_INTERCEPTORS, useClass: BasicAuthService, multi:true 
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

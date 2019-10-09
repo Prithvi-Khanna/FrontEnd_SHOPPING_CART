@@ -1,11 +1,13 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 
 <nav class="navbar navbar-expand bg-light navbar-dark text-center justify-content-between my-2">
-    <div class="mx-auto font-weight-bold"><a href="#" style="color: black ;text-decoration: none">ELECTRONCS </a></div>
-    <div class="mx-auto font-weight-bold"><a href="#" style="color: black ;text-decoration: none">BOOKS </a></div>
-    <div class="mx-auto font-weight-bold"><a href="#" style="color: black ;text-decoration: none">MEN </a></div>
-    <div class="mx-auto font-weight-bold"><a href="#" style="color: black ;text-decoration: none">WOMEN </a></div>
-    <div class="mx-auto font-weight-bold"><a href="#" style="color: black ;text-decoration: none">KIDS</a></div>
+ 
+  <div class="mx-auto font-weight-bold"><button class="btn btn-light" (click)="goTo('Men')" >MEN </button></div>
+  <div class="mx-auto font-weight-bold"><button class="btn btn-light" (click)="goTo('Women')" >WOMEN </button></div>
+  <div class="mx-auto font-weight-bold"><button class="btn btn-light" (click)="goTo('Kids')" >KIDS </button></div>
+  <div class="mx-auto font-weight-bold"><button class="btn btn-light" (click)="goTo('Electronics')" >ELECTRONICS </button></div>
+  <div class="mx-auto font-weight-bold"><button class="btn btn-light" (click)="goTo('Books')" >BOOKS </button></div>
+  <div class="mx-auto font-weight-bold"><button class="btn btn-light" (click)="goTo('Sports')" >SPORTS </button></div>
 
   <div>
    <form class="form-inline mx-auto " action="/action_page.php">

@@ -4,7 +4,7 @@
          <div class="text-center"><h2>SIGN-UP</h2></div>
          <div class="container">
            <div>
-           <form action="/login" #userForm="ngForm" (ngSubmit)="Onsubmit()" novalidate>
+           <form #userForm="ngForm" (ngSubmit)="Onsubmit()" novalidate>
             <div class="form-group"  >
                 <label  for="usr">Email:</label>
                 <input type="email" required #mail="ngModel" [class.is-invalid]="mail.invalid && mail.touched" class="form-control" id="email" name="email" placeholder="Enter Email" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$" [(ngModel)]="post1.email">

@@ -22,9 +22,9 @@ export class HomePageComponent implements OnInit {
   } )
   }
 
-  goToDetails(id1)
-  {
-      this.router.navigate(['/product-details'] , { queryParams : {id : id1 }});
+  goTo(cate)
+  {    
+      this.router.navigate(['/product-list'] , { queryParams : {cat : cate }});
   }
 
 }
