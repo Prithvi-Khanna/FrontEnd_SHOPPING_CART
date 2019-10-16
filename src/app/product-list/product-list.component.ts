@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GetDataService } from '../get-data.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { GetUserService } from '../get-user.service';
 
 @Component({
   selector: 'app-product-list',
@@ -20,7 +21,7 @@ export class ProductListComponent implements OnInit {
 
   price1 = { "first" : "" , "last" : "" };
   sub_cate1 = "";
-  constructor(private route : ActivatedRoute , private service : GetDataService , private router : Router) {
+  constructor(private route : ActivatedRoute , private service : GetDataService , private router : Router , private service1 : GetUserService) {
     
    }
    
@@ -47,6 +48,8 @@ export class ProductListComponent implements OnInit {
     'Badminton'
    ]
 
+   ROLE;
+
   ngOnInit() {
 
   this.route.queryParams.subscribe ( param =>{
@@ -54,6 +57,11 @@ export class ProductListComponent implements OnInit {
   this.service.get_cat(this.cate).subscribe( (data1 ) => {
     this.Data=data1;
         }) 
+
+        let user = sessionStorage.getItem('username');
+        this.service1.get1_user(user).subscribe ( data => {
+          this.ROLE=data;
+        })  
  })
 
 }
@@ -96,4 +104,23 @@ export class ProductListComponent implements OnInit {
     console.log(this.price1.last);
     console.log(this.sub_cate1);
   }
+
+  add(id)
+  {
+    this.service.addto(id).subscribe( data => {
+      location.assign('/user-cart');
+    })
+  }
+
+  editproduct(id)
+  {
+    this.router.navigate(['/edit-product'] , { queryParams : {id : id }});
+  }
+ isAdmin()
+ {
+   if( this.ROLE.role == "Admin")
+    return true;
+   else
+    return false; 
+ }
 }

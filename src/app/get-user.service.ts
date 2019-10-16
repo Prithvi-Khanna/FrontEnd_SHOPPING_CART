@@ -17,4 +17,10 @@ export class GetUserService {
   {
     return this.http.post<any>('http://localhost:2019/users/post1' , posts , { headers : new HttpHeaders( { 'Content-Type' : 'application/json' } )});
   }
+
+  put_user(user)
+  {
+   const headers = new HttpHeaders({Authorization : sessionStorage.getItem('basicauth')}); 
+    return this.http.put<any>('http://localhost:2019/users/put_user' , user , {headers} );
+  }
 }

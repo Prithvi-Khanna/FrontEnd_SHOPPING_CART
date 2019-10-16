@@ -43,4 +43,13 @@ export class ProductDetailsComponent implements OnInit {
       this.router.navigate(['/product-list'] , { queryParams : {cat : cate }});
   }
 
+  add(id)
+  {
+    console.log(id);
+    this.service.addto(id).subscribe( data => {
+      console.log(data);
+      location.assign('/user-cart');
+    })
+  }
+
 }

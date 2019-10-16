@@ -16,6 +16,10 @@ import { GetUserService } from './get-user.service';
 import { FormsModule } from '@angular/forms'; 
 import { BasicAuthService } from './basic-auth.service';
 import { AuthService } from './auth.service';
+import { ProfileComponent } from './profile/profile.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { AuthService } from './auth.service';
     UserCartComponent,
     ProductDetailsComponent,
     ProductListComponent,
-    NavBarComponent
+    NavBarComponent,
+    ProfileComponent,
+    EditProfileComponent,
+    AddProductComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,
