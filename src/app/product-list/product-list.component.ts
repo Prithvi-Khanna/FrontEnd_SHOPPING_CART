@@ -3,6 +3,7 @@ import { GetDataService } from '../get-data.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { GetUserService } from '../get-user.service';
+import { isUndefined } from 'util';
 
 @Component({
   selector: 'app-product-list',
@@ -14,7 +15,7 @@ export class ProductListComponent implements OnInit {
   
   Data;
   Data_cat;
-  cate;
+  cate = "undo";
   first;
   last;
   sub1;
@@ -49,33 +50,43 @@ export class ProductListComponent implements OnInit {
    ]
 
    ROLE;
+   SEARCH = "";
 
   ngOnInit() {
-
-  this.route.queryParams.subscribe ( param =>{
-    this.cate = param.cat;
-  this.service.get_cat(this.cate).subscribe( (data1 ) => {
-    this.Data=data1;
-        }) 
-
-        let user = sessionStorage.getItem('username');
-        this.service1.get1_user(user).subscribe ( data => {
-          this.ROLE=data;
-        })  
- })
-
+  
+    this.route.queryParams.subscribe ( param =>{
+      this.cate = param.cat;
+      if(!(typeof(param.d)  === 'undefined'))
+       {
+         this.SEARCH=param.d;
+     
+         console.log(this.SEARCH);
+         this.search();
+       }
+      
+      else {
+    this.service.get_cat(this.cate).subscribe( (data1 ) => {
+      this.Data=data1;
+          }) 
+        }
+        })
+      
+          let user = sessionStorage.getItem('username');
+          this.service1.get1_user(user).subscribe ( data => {
+            this.ROLE=data;
+          })  
+   
 }
 
   goToDetails(id1)
   {
-    console.log(id1);
       this.router.navigate(['/product-details'] , { queryParams : {id : id1 }});
   }
 
   get_cate1(category)
   {
     this.service.get_cat(category).subscribe( (data2) => {
-      this.Data_cat = data2;
+      this.Data = data2;
     })
   }
 
@@ -84,25 +95,45 @@ export class ProductListComponent implements OnInit {
       this.router.navigate(['/product-list'] , { queryParams : {cat : cate }});
   }
 
+  clear()
+  {
+    this.get_cate1(this.cate);
+    this.ngOnInit();
+  }
+
   submitfilter1($event,s)
   {
     this.sub_cate1=s;
-    console.log(s);
-    console.log(this.price1.first);
-    console.log(this.price1.last);
-   console.log(this.cate);
-    this.service.getprice1(this.cate,this.sub_cate1,this.price1.first,this.price1.last).subscribe( (data) => {
-      this.Data=data;
-    })
-    
+    if(this.price1.first == "")
+    {
+       this.service.getsub(this.cate,this.sub_cate1).subscribe( data => {
+         this.Data=data;
+       })
+    }
+    else
+    {
+      this.service.get_sub_price(this.cate,this.sub_cate1,this.price1.first,this.price1.last).subscribe( data => {
+        this.Data=data;        
+      })
+    }
   }
   submitfilter2($event,first,last)
   {
     this.price1.first=first;
     this.price1.last=last;
-    console.log(this.price1.first);
-    console.log(this.price1.last);
-    console.log(this.sub_cate1);
+    if(this.sub_cate1 == "")
+       {
+         this.service.getprice(this.cate,this.price1.first,this.price1.last).subscribe( data => {
+           this.Data=data;
+         })
+       }
+    else
+    {
+      this.service.get_sub_price(this.cate,this.sub_cate1,this.price1.first,this.price1.last).subscribe( data => {
+        this.Data=data;        
+      })
+    }   
+    
   }
 
   add(id)
@@ -123,4 +154,12 @@ export class ProductListComponent implements OnInit {
    else
     return false; 
  }
+
+ search()
+ {
+    this.service.get_search(this.SEARCH).subscribe( (data2) => {
+      this.Data = data2;
+  })
+ }
+
 }

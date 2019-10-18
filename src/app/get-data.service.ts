@@ -17,10 +17,24 @@ export class GetDataService {
     return this.http.get('http://localhost:2019/product/get1');
   }
 
-  getprice1(cate,sub_cate,first,last)
-  { 
-    console.log(first+" "+last);
-    return this.http.get('http://localhost:2019/product/sub/'+cate+'/'+sub_cate+'/'+first+'/'+last);
+  get_search(SEARCH)
+  {
+    return this.http.get('http://localhost:2019/product/search/'+SEARCH);
+  }
+
+  getsub(cate,sub)
+  {
+    return this.http.get('http://localhost:2019/product/'+cate+'/'+sub);
+  }
+
+  getprice(cate,first,last)
+  {
+    return this.http.get('http://localhost:2019/product/'+cate+'/'+first+'/'+last);
+  }
+
+  get_sub_price(cate,sub,first,last)
+  {
+    return this.http.get('http://localhost:2019/product/sub/'+cate+'/'+sub+'/'+first+'/'+last);
   }
 
   get_cat(cate)

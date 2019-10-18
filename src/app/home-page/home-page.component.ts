@@ -11,7 +11,7 @@ console.log("homie");
 export class HomePageComponent implements OnInit {
 
   Data;
-
+  SEARCH = "";
   constructor(private router : Router , private service : GetDataService) {
     
    }
@@ -27,4 +27,8 @@ export class HomePageComponent implements OnInit {
       this.router.navigate(['/product-list'] , { queryParams : {cat : cate }});
   }
 
+  search()
+  {
+     this.router.navigate(['/product-list'] , { queryParams : {d : this.SEARCH }})
+  }
 }

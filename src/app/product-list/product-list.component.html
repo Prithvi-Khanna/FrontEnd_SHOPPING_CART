@@ -10,8 +10,8 @@
   
 <div>
  <form class="form-inline mx-auto " action="/action_page.php">
-   <input class="form-control mr-2 ml-auto" type="text" placeholder="Search for product" size="60">
-   <button class="btn btn-warning" type="submit"><i class="fas fa-search"></i>  Search </button>
+   <input class="form-control mr-2 ml-auto" type="text" placeholder="Search for product" size="60" name="SEARCH" [(ngModel)]="SEARCH">
+   <button class="btn btn-warning" type="submit" (click)="search()"><i class="fas fa-search"></i>  Search </button>
  </form>
  </div>
 </nav>
@@ -22,8 +22,8 @@
             <form>
             <div class="text-center text-dark p-4 font-weight-bold" >
                  <h4>Add Filters</h4>
-                 <!-- <button class="btn btn-dark text-warning" (click)="submitfilter()" type="submit">Apply Filters</button> -->
              </div>
+            <div class="text-center"><button class="btn btn-warning " (click)="clear()">Clear Filters</button></div>
              <hr>
               <div class="font-weight-lighter text-dark" >
                 <h5>Prices</h5>
@@ -61,10 +61,10 @@
           <p class="card-text" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis ">{{item.description}}</p>
           <div class="d-flex justify-content-between">
           <div><button class="btn btn-warning" (click)="add(item.productId)" >Add to cart</button></div>
-          <div class="ml-1"><button class="btn btn-secondary" (click)="goToDetails(item.description)">More Details</button></div>
+          <div class="ml-1"><button class="btn btn-info" (click)="goToDetails(item.productId)">More Details</button></div>
           </div>
           <br>
-          <button class="btn btn-info" *ngIf="isAdmin()" (click)="editproduct(item.productId)">Edit Product</button>
+          <button class="btn btn-success" *ngIf="isAdmin()" (click)="editproduct(item.productId)">Edit Product</button>
         </div>
       </div>
       </div>

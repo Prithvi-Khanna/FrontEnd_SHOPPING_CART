@@ -8,11 +8,11 @@
      <div class="mx-auto font-weight-bold"><button class="btn btn-light" (click)="goTo('Books')" >BOOKS </button></div>
      <div class="mx-auto font-weight-bold"><button class="btn btn-light" (click)="goTo('Sports')" >SPORTS </button></div>
 
-   <div>
-    <form class="form-inline mx-auto "  action="/action_page.php">
-      <input class="form-control mr-2 ml-auto" type="text"  placeholder="Search for product" size="60">
-      <button class="btn btn-warning"  type="submit"><i class="fas fa-search"></i>  Search </button>
-    </form>
+   <div class="d-flex">
+    
+    <div> <input class="form-control mr-2 ml-auto" type="text"  placeholder="Search for product" size="60" name="SEARCH" [(ngModel)]="SEARCH"></div>
+     <div class="ml-2"> <button class="btn btn-warning" (click)="search()"><i class="fas fa-search"></i>  Search </button></div>
+  
     </div>
   </nav>
 

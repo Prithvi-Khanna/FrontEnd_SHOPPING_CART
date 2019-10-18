@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GetDataService } from '../get-data.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-cart',
@@ -12,12 +12,11 @@ export class UserCartComponent implements OnInit {
   cart;
   cash=0;
   empty = false;
-  constructor( private service : GetDataService , private route : ActivatedRoute) { }
+  constructor( private service : GetDataService , private route : ActivatedRoute , private router : Router) { }
 
   ngOnInit() {
     this.service.getcart().subscribe( data => {
       this.cart=data;
-      console.log(this.cart);
       if ( this.cart.length == 0)
       this.empty = false;
       else
@@ -67,13 +66,17 @@ export class UserCartComponent implements OnInit {
 
  Return_Empty()
  {
-   console.log(this.empty);
    return this.empty;
  }
 
  toHome()
  {
    location.assign('/home');
+ }
+
+ details(id)
+ {
+   this.router.navigate(['/product-details'] , { queryParams : {id : id }});
  }
 
 }

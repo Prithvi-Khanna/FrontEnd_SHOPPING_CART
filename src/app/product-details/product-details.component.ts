@@ -16,26 +16,13 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit() {
  
-    this.service.get1().subscribe( (data1 ) => {
-      this.DATA=data1;
       this.route.queryParams.subscribe ( param =>{
         this.ID = param.id;
-        console.log(this.ID);
           })
+      this.service.get_id(this.ID).subscribe( data => {
+        this.data2=data;
+      })
   
-         this.data2 = this.getDetails(this.ID); 
-    })
-  
-    
-    
-  }
-
-  getDetails(rid){
-    for( let i=0 ;i<this.DATA.length;i++)
-    {
-      if(rid == this.DATA[i].description)
-        return this.DATA[i];
-    }
   }
 
   goTo(cate)

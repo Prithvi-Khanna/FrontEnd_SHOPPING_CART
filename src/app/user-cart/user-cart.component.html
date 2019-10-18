@@ -9,7 +9,7 @@
          <div class="card-body">
             <div class="row">
              <div class="col-4">
-                 <img src="{{c.item.img}}" style="width: 200px ; height: 200px ;box-shadow:1px 1px 1px 1px rgba(0, 0, 0, 0.3) ;">
+                <a routerLink="/product-details" (click)="details(c.item.productId)"><img src="{{c.item.img}}" style="width: 200px ; height: 200px ;box-shadow:1px 1px 1px 1px rgba(0, 0, 0, 0.3) ;"></a>
              </div>
              <div class="col-8">
                  <h4>{{c.item.name}}</h4>
